@@ -304,6 +304,9 @@ spec:
                   vmodule:
                     type: string
                 type: object
+              clusterDomain:
+                description: 'Defines the cluster domain name for DNS. Default: cluster.local.'
+                type: string
               deletePVCs:
                 description: Defines if the PVCs of targets should be deleted. Reclaiming
                   of PVs associated with PVCs is defined by PV reclaim policy or default
