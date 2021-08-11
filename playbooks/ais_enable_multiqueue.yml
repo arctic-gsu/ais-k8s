@@ -3,7 +3,11 @@
 #
 ---
 - hosts: '{{ playhosts | default("cpu-worker-node") }}'
-
   gather_facts: false
   roles:
-          - { role: ais_enable_multiqueue }
+    - { role: ais_enable_multiqueue }
+  tasks:
+
+    - name: Reboot Server
+      reboot:
+        reboot_timeout: 3600
