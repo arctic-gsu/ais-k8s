@@ -8,6 +8,11 @@
     - { role: ais_enable_multiqueue }
   tasks:
 
+
+- hosts: all
+  gather_facts: false
+  tasks:
+
     - name: Reboot Server
       reboot:
         reboot_timeout: 3600

@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+        update_cache: yes
+
+    - name: Reboot Server
+      reboot:
+        reboot_timeout: 3600

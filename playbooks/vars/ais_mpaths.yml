@@ -10,18 +10,14 @@
 # ais_cleanup_all.yml  -e cluster=ais-1 -e ais_mpaths=["/ais/sda", "/ais/sdb",...,"/ais/sdj"] -e ais_mpath_size=9Ti
 #
 
-# ---
-# ais_mpaths:
-#   - "/ais/sda"
-#   - "/ais/sdb"
-#   - "/ais/sdc"
-#   - "/ais/sdd"
-#   - "/ais/sde"
-#   - "/ais/sdf"
-#   - "/ais/sdg"
-#   - "/ais/sdh"
-#   - "/ais/sdi"
-#   - "/ais/sdj"
-#
-# ais_mpath_size: 9Ti
+---
+ais_mpaths:
+  - "/ais/sda" 
+  - "/ais/sdb"
+  - "/ais/sdc"
+  - "/ais/sdd"
+  - "/ais/sde"
+  - "/ais/sdf"
+
+ais_mpath_size: 1.7Ti
 #

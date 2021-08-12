@@ -4,8 +4,10 @@
 *.hcl
 playbooks/hosts.ini
 playbooks/ansible.cfg
-
+kubespray/
+.vagrant
 *.tgz
 *.lock
 *.state
 *.swp
+.idea

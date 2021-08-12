@@ -1,0 +1,37 @@
+---
+- name: Add Kubectl Config For Users
+  hosts: kube-master
+  become: yes
+  vars:
+    users:
+      - hpcjduckett
+      - hpcneranjan
+      - hpcsburns17
+      - hpctimsina
+      - hpcchildress
+      - hpcylukinov
+  tasks:
+
+    - name: Create .kube Directory For Users
+      file:
+        path: "/home/{{ item }}/.kube"
+        owner: "{{ item }}"
+        group: "{{ item }}"
+        mode: '0700'
+        state: directory
+      with_items: "{{ users }}"
+
+    - name: Copy Admin.conf To User .kube Directory
+      copy:
+        src: /etc/kubernetes/admin.conf
+        dest: "/home/{{ item }}/.kube/config"
+        remote_src: yes
+        owner: "{{ item }}"
+        group: "{{ item }}"
+      with_items: "{{ users }}"
+
+    - name: Test Each Users Access To Kubernetes
+      shell: kubectl get nodes -o wide
+      become: yes
+      become_user: "{{ item }}"
+      with_items: "{{ users }}"

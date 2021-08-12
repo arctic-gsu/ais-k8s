@@ -1,5 +1,5 @@
 ---
-- hosts: "controller"
+- hosts: "{{ controller }}"
   gather_facts: no
   vars_files:
     - "vars/ais_mpaths.yml"
